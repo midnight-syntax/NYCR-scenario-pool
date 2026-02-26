@@ -81,7 +81,21 @@
       text-align:center;
       letter-spacing:1px;
     }
+input[type="text"]{
+  width:100%;
+  border-radius:16px;
+  border:2px solid rgba(0,0,0,.1);
+  padding:14px 16px;
+  font-size:15px;
+  margin-bottom:12px;
+  transition: all 0.2s ease;
+}
 
+input[type="text"]:focus{
+  box-shadow: 0 0 0 4px rgba(138,108,255,.15);
+  border-color: rgba(138,108,255,.5);
+  outline:none;
+}
     textarea{
       width:100%;
       min-height:140px;
@@ -192,13 +206,19 @@
   const SUPABASE_ANON_KEY = "sb_publishable_sqIbRtj7ppvUi5ElLpQWhg_oQLSgM0w";
 
   async function submitForm(){
-    const scenario = document.getElementById("scenario").value.trim();
+   const name = document.getElementById("name").value.trim();
+const scenario = document.getElementById("scenario").value.trim();
     const status = document.getElementById("status");
 
-    if(!scenario){
-      status.innerText = "Please enter something first.";
-      return;
-    }
+  if(!name){
+  status.innerText = "Please enter your name.";
+  return;
+}
+
+if(!scenario){
+  status.innerText = "Please enter something first.";
+  return;
+}
 
     status.innerText = "Submitting…";
 
@@ -211,13 +231,15 @@
         "Prefer":"return=minimal"
       },
       body: JSON.stringify({
-        scenario: scenario,
-        week: new Date().toISOString().slice(0,10)
-      })
+  name: name,
+  scenario: scenario,
+  week: new Date().toISOString().slice(0,10)
+})
     });
 
     if(res.ok){
-      document.getElementById("scenario").value="";
+      document.getElementById("name").value="";
+document.getElementById("scenario").value="";
       status.innerText="Submitted ✨ thank you.";
     } else {
       status.innerText="Something went wrong.";
