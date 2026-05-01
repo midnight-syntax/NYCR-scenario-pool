@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New York Creative Room | Archive</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Georgia, 'Times New Roman', serif;
+      color: #f8f4ee;
+      background:
+        linear-gradient(rgba(15, 18, 34, 0.72), rgba(15, 18, 34, 0.82)),
+        radial-gradient(circle at top left, rgba(255, 209, 220, 0.25), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(170, 190, 255, 0.25), transparent 35%),
+        #101322;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 18px;
+    }
+
+    .page-shell {
+      width: 100%;
+      max-width: 920px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 28px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(12px);
+      padding: 42px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.76rem;
+      color: #d8c7ff;
+      margin-bottom: 16px;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 7vw, 5.2rem);
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      margin-bottom: 22px;
+      font-weight: 500;
+    }
+
+    .intro {
+      font-size: clamp(1.05rem, 2.4vw, 1.28rem);
+      line-height: 1.65;
+      max-width: 680px;
+      color: rgba(248, 244, 238, 0.88);
+      margin-bottom: 30px;
+    }
+
+    .password-box {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 26px 0 10px;
+    }
+
+    input {
+      flex: 1;
+      min-width: 220px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 999px;
+      padding: 14px 18px;
+      background: rgba(255, 255, 255, 0.14);
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.62);
+    }
+
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 14px 24px;
+      background: #f8f4ee;
+      color: #151827;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      opacity: 0.92;
+    }
+
+    .hint,
+    .error {
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      color: rgba(248, 244, 238, 0.72);
+      line-height: 1.5;
+    }
+
+    .error {
+      color: #ffd1dc;
+      min-height: 1.4em;
+      margin-top: 8px;
+    }
+
+    #archiveContent {
+      display: none;
+      margin-top: 34px;
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.22);
+      margin: 34px 0;
+    }
+
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .archive-link {
+      display: block;
+      text-decoration: none;
+      color: #f8f4ee;
+      padding: 22px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .archive-link:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .archive-link span {
+      display: block;
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #d8c7ff;
+      margin-bottom: 9px;
+    }
+
+    .archive-link strong {
+      display: block;
+      font-size: 1.25rem;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .archive-link p {
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.45;
+      color: rgba(248, 244, 238, 0.74);
+    }
+
+    .footer-note {
+      margin-top: 28px;
+      font-family: Arial, sans-serif;
+      font-size: 0.88rem;
+      color: rgba(248, 244, 238, 0.62);
+      line-height: 1.5;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        align-items: flex-start;
+        padding-top: 26px;
+      }
+
+      .card {
+        padding: 28px 22px;
+        border-radius: 22px;
+      }
+
+      .password-box {
+        display: block;
+      }
+
+      input,
+      button {
+        width: 100%;
+      }
+
+      button {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-shell">
+    <section class="card">
+      <p class="eyebrow">New York Creative Room</p>
+      <h1>The Archive</h1>
+      <p class="intro">
+        A living record of our creative process conversations, reflections, photos, prompts, and takeaways.
+        This space is intended for attendees and collaborators.
+      </p>
+
+      <div id="passwordSection">
+        <p class="hint">Enter the archive password to view past session notes.</p>
+        <div class="password-box">
+          <input type="password" id="passwordInput" placeholder="Enter password" aria-label="Archive password" />
+          <button onclick="checkPassword()">Enter</button>
+        </div>
+        <p class="error" id="errorMessage"></p>
+      </div>
+
+      <div id="archiveContent">
+        <div class="divider"></div>
+
+        <div class="archive-grid">
+          <a class="archive-link" href="archive/meeting-01.html">
+            <span>Meeting 01</span>
+            <strong>Creative Process</strong>
+            <p>Reflections, prompts, notes, and takeaways from our first gathering.</p>
+          </a>
+
+          <a class="archive-link" href="#">
+            <span>Meeting 02</span>
+            <strong>Coming Soon</strong>
+            <p>This retrospective will be added after the next session.</p>
+          </a>
+
+          <a class="archive-link" href="#">
+            <span>Meeting 03</span>
+            <strong>Coming Soon</strong>
+            <p>This retrospective will be added after the session.</p>
+          </a>
+        </div>
+
+        <p class="footer-note">
+          Note: this lightweight password gate is meant to discourage casual visitors. For highly private material,
+          use private Google Drive, Notion, or a hosting platform with true password protection.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const archivePassword = "creative-room-nyc";
+
+    function unlockArchive() {
+      document.getElementById("passwordSection").style.display = "none";
+      document.getElementById("archiveContent").style.display = "block";
+      sessionStorage.setItem("nycrArchiveUnlocked", "true");
+    }
+
+    function checkPassword() {
+      const enteredPassword = document.getElementById("passwordInput").value.trim();
+      const errorMessage = document.getElementById("errorMessage");
+
+      if (enteredPassword === archivePassword) {
+        unlockArchive();
+      } else {
+        errorMessage.textContent = "That password did not work. Please try again.";
+      }
+    }
+
+    document.getElementById("passwordInput").addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        checkPassword();
+      }
+    });
+
+    if (sessionStorage.getItem("nycrArchiveUnlocked") === "true") {
+      unlockArchive();
+    }
+  </script>
+</body>
+</html>
