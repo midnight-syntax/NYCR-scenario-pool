@@ -1,178 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meeting 04.30.26</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meeting 04.30.26</title>
 
-<style>
-body {
-  margin: 0;
-  padding: 40px;
-  background: #0f1222;
-  color: #f8f4ee;
-  font-family: Georgia, serif;
-}
+  <style>
+    body {
+      margin: 0;
+      padding: 32px;
+      background: #0f1222;
+      color: #f8f4ee;
+      font-family: Georgia, serif;
+    }
 
-h1 {
-  text-align: center;
-  font-size: 3rem;
-  margin-bottom: 60px;
-}
+    h1 {
+      text-align: center;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      margin-bottom: 12px;
+    }
 
-.canvas {
-  position: relative;
-  max-width: 1100px;
-  margin: auto;
-  height: 2100px;
-}
+    .subtitle {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 50px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: rgba(248,244,238,0.78);
+    }
 
-.note {
-  position: absolute;
-  max-width: 280px;
-  line-height: 1.5;
-}
+    .grid {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
 
-.small { font-size: 0.9rem; opacity: 0.8; }
-.medium { font-size: 1.1rem; }
-.large { font-size: 1.6rem; }
+    .card {
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 20px;
+      padding: 24px;
+      line-height: 1.55;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+    }
 
-.box {
-  background: rgba(255,255,255,0.08);
-  padding: 16px;
-  border-radius: 12px;
-}
+    .card.feature {
+      grid-column: span 2;
+    }
 
-a {
-  color: #d8c7ff;
-  text-decoration: none;
-}
+    h2 {
+      margin-top: 0;
+      font-size: 1.35rem;
+      color: #f8f4ee;
+    }
 
-a:hover {
-  text-decoration: underline;
-}
+    p {
+      margin-bottom: 14px;
+    }
 
-.photo {
-  position: absolute;
-  width: 200px;
-  border-radius: 12px;
-  transform: rotate(-3deg);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-</style>
+    a {
+      color: #d8c7ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .quote {
+      font-size: 1.6rem;
+      line-height: 1.3;
+      text-align: center;
+      background: transparent;
+      box-shadow: none;
+      border: none;
+    }
+
+    @media (max-width: 700px) {
+      body {
+        padding: 22px;
+      }
+
+      .card.feature {
+        grid-column: span 1;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<h1>Meeting 04.30.26</h1>
+  <h1>Meeting 04.30.26</h1>
 
-<div class="canvas">
+  <p class="subtitle">
+    Notes, resources, reflections, and creative sparks from our first New York Creative Room gathering.
+  </p>
 
-<!-- CORE IDEA -->
-<div class="note large" style="top: 40px; left: 50px;">
-Creative process is not linear
-</div>
+  <div class="grid">
 
-<div class="note medium box" style="top: 120px; left: 400px;">
-We don’t wait for inspiration — we create momentum
-</div>
+    <div class="card quote">
+      Creative process is not linear.
+    </div>
 
-<!-- ARTIST'S WAY -->
-<div class="note medium box" style="top: 260px; left: 60px;">
-<strong>The Artist’s Way — Julia Cameron</strong><br><br>
-A framework for unlocking creativity through consistency, honesty, and removing self-censorship.<br><br>
+    <div class="card">
+      <h2>The Artist’s Way</h2>
+      <p>
+        Julia Cameron’s <em>The Artist’s Way</em> offers a framework for unlocking creativity through consistency,
+        honesty, and removing self-censorship.
+      </p>
+      <p>
+        It is especially valuable because it treats creativity as a practice — not a rare lightning strike.
+      </p>
+      <p>
+        → <a href="https://www.youtube.com/results?search_query=the+artist%27s+way+julia+cameron" target="_blank">YouTube overview</a><br>
+        → <a href="https://juliacameronlive.com/basic-tools/morning-pages/" target="_blank">Morning Pages</a><br>
+        → <a href="https://www.google.com/search?q=julia+cameron+artist&tbm=isch" target="_blank">Photo references</a>
+      </p>
+    </div>
 
-→ <a href="https://www.youtube.com/results?search_query=the+artist%27s+way+julia+cameron" target="_blank">YouTube overview</a><br>
-→ <a href="https://juliacameronlive.com/basic-tools/morning-pages/" target="_blank">Morning Pages</a><br>
-→ <a href="https://www.google.com/search?q=julia+cameron+artist&tbm=isch" target="_blank">Photo references</a>
-</div>
+    <div class="card">
+      <h2>Songwriting Philosophies</h2>
+      <p>
+        Some artists create through volume: writing hundreds of songs to find the strongest few.
+        Think Ed Sheeran or Taylor Swift.
+      </p>
+      <p>
+        Others work with a more selective approach, like Billie Eilish and Finneas, focusing on fewer songs that deeply serve the project.
+      </p>
+      <p>
+        → <a href="https://www.youtube.com/results?search_query=ed+sheeran+songwriting+process" target="_blank">Ed Sheeran songwriting process</a><br>
+        → <a href="https://www.youtube.com/results?search_query=taylor+swift+songwriting+process" target="_blank">Taylor Swift songwriting process</a><br>
+        → <a href="https://www.youtube.com/results?search_query=billie+eilish+finneas+songwriting+process" target="_blank">Billie + Finneas process</a>
+      </p>
+    </div>
 
-<!-- SONGWRITING PHILOSOPHY -->
-<div class="note medium box" style="top: 500px; left: 420px;">
-<strong>Songwriting Philosophies</strong><br><br>
+    <div class="card">
+      <h2>Finishing Songs</h2>
+      <p>
+        Finishing songs is its own creative muscle.
+      </p>
+      <p>
+        Starting 1,000 ideas can feel exciting, but discipline is often what turns inspiration into actual work.
+      </p>
+    </div>
 
-Ed Sheeran / Taylor Swift:<br>
-volume → write hundreds to find the best<br><br>
+    <div class="card">
+      <h2>Perceived Competence</h2>
+      <p>
+        In music and creative work, perceived competence can sometimes seem more valuable than actual competence.
+      </p>
+      <p>
+        This can pressure artists to appear more polished, less sensitive, or less uncertain — even when sensitivity is the source of the art.
+      </p>
+    </div>
 
-Billie Eilish / Finneas:<br>
-intentional → fewer, stronger songs<br><br>
+    <div class="card">
+      <h2>Protected Creative Time</h2>
+      <p>
+        One hour a week of dedicated, protected creative time can become a powerful anchor.
+      </p>
+    </div>
 
-→ <a href="https://www.youtube.com/results?search_query=ed+sheeran+songwriting+process" target="_blank">Ed Sheeran process</a><br>
-→ <a href="https://www.youtube.com/results?search_query=billie+eilish+finneas+songwriting" target="_blank">Billie + Finneas process</a><br>
-→ <a href="https://www.google.com/search?q=ed+sheeran+taylor+swift+billie+eilish&tbm=isch" target="_blank">Photo references</a>
-</div>
+    <div class="card">
+      <h2>Creative Co-Working</h2>
+      <p>
+        Working alone, together.
+      </p>
+      <p>
+        Accountability without pressure. Presence without performance.
+      </p>
+    </div>
 
-<!-- DISCIPLINE -->
-<div class="note small" style="top: 700px; left: 120px;">
-finishing songs > starting 1,000 unfinished ones
-</div>
+    <div class="card feature">
+      <h2>Solitude + The World</h2>
+      <p>
+        Solitude is sacred for many artists. It gives us space to hear ourselves clearly.
+      </p>
+      <p>
+        But creating in a vacuum can stifle creativity. Sometimes, to write our best songs or create our best work,
+        we have to immerse ourselves in the world: sit on a bench in the park, wander through a museum, watch a film
+        with a beautiful story, observe strangers, colors, sounds, weather, and movement.
+      </p>
+      <p>
+        Then we return inward — fueled with real material to create from.
+      </p>
+      <p>
+        → <a href="https://www.youtube.com/results?search_query=solitude+and+creativity" target="_blank">Solitude + creativity</a><br>
+        → <a href="https://www.youtube.com/results?search_query=rick+rubin+creative+process+paying+attention" target="_blank">Rick Rubin on attention</a>
+      </p>
+    </div>
 
-<!-- INDUSTRY TRUTH -->
-<div class="note medium box" style="top: 820px; left: 600px;">
-<strong>Industry tension</strong><br><br>
+    <div class="card">
+      <h2>Astrology + Synchronicity</h2>
+      <p>
+        Scorpio moon energy, astrological signs, synchronicities, and the soul’s path came up as ways artists interpret timing,
+        intuition, and emotional depth.
+      </p>
+    </div>
 
-Perceived competence can feel more valuable than actual competence.<br><br>
+    <div class="card">
+      <h2>Carl Jung + Rick Rubin</h2>
+      <p>
+        Carl Jung offers language for shadow, subconscious material, dreams, and integration.
+      </p>
+      <p>
+        Rick Rubin brings the focus back to intuition, simplicity, attention, and listening.
+      </p>
+      <p>
+        → <a href="https://www.youtube.com/results?search_query=rick+rubin+creative+process" target="_blank">Rick Rubin interviews</a><br>
+        → <a href="https://www.youtube.com/results?search_query=carl+jung+explained+creativity" target="_blank">Carl Jung overview</a><br>
+        → <a href="https://www.google.com/search?q=rick+rubin+carl+jung&tbm=isch" target="_blank">Photo references</a>
+      </p>
+    </div>
 
-Artists often shape themselves to appear less sensitive — even when sensitivity is the source of their work.
-</div>
+    <div class="card quote">
+      What does your process look like right now?
+    </div>
 
-<!-- CREATIVE TIME -->
-<div class="note medium" style="top: 1050px; left: 80px;">
-1 hour of protected creative time each week can change everything
-</div>
-
-<!-- CO-WORKING -->
-<div class="note medium box" style="top: 1150px; left: 400px;">
-Creative co-working:<br><br>
-
-Working alone, together.<br><br>
-
-Accountability without pressure.<br>
-Presence without performance.
-</div>
-
-<!-- ASTRO -->
-<div class="note small" style="top: 1350px; left: 150px;">
-Scorpio moon energy — depth, intensity, emotional truth
-</div>
-
-<!-- JUNG / RICK RUBIN -->
-<div class="note medium box" style="top: 1450px; left: 550px;">
-<strong>Influences</strong><br><br>
-
-Carl Jung → shadow, subconscious, integration<br>
-Rick Rubin → intuition, simplicity, listening<br><br>
-
-→ <a href="https://www.youtube.com/results?search_query=rick+rubin+creative+process" target="_blank">Rick Rubin interviews</a><br>
-→ <a href="https://www.youtube.com/results?search_query=carl+jung+explained" target="_blank">Carl Jung overview</a><br>
-→ <a href="https://www.google.com/search?q=rick+rubin+carl+jung&tbm=isch" target="_blank">Photo references</a>
-</div>
-
-<!-- SOLITUDE + THE WORLD -->
-<div class="note medium box" style="top: 1280px; left: 660px;">
-  <strong>Solitude + The World</strong><br><br>
-
-  Solitude is sacred for many artists — it gives us space to hear ourselves clearly.<br><br>
-
-  But creating in a vacuum can stifle creativity. Sometimes, to write our best songs or make our best work, we have to re-enter the world:<br><br>
-
-  sit on a bench in the park,<br>
-  wander through a museum,<br>
-  watch a film with a beautiful story,<br>
-  observe strangers, colors, sounds, weather, movement.<br><br>
-
-  Then we return inward — fueled with real material to create from.<br><br>
-
-  → <a href="https://www.youtube.com/results?search_query=solitude+and+creativity" target="_blank">Solitude + creativity</a><br>
-  → <a href="https://www.youtube.com/results?search_query=rick+rubin+artist+way+paying+attention" target="_blank">Rick Rubin on paying attention</a>
-</div>
-
-<!-- FLOATING POETIC LINE -->
-<div class="note large" style="top: 1650px; left: 200px;">
-What does your process look like right now?
-</div>
-
-</div>
+  </div>
 
 </body>
 </html>
