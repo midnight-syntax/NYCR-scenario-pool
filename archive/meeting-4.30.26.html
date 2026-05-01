@@ -1,275 +1,406 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Meeting 04.30.26</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meeting 04.30.26</title>
 
-<style>
-body {
-  margin: 0;
-  padding: 32px;
-  background: #0f1222;
-  color: #f8f4ee;
-  font-family: Georgia, serif;
-}
+  <style>
+    body {
+      margin: 0;
+      padding: 32px;
+      background: #0f1222;
+      color: #f8f4ee;
+      font-family: Georgia, serif;
+    }
 
-/* HEADER */
-h1 {
-  text-align: center;
-  font-size: clamp(2.2rem, 6vw, 4rem);
-}
+    h1 {
+      text-align: center;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      margin-bottom: 12px;
+    }
 
-.subtitle {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 50px;
-  font-size: 1.1rem;
-  color: rgba(248,244,238,0.78);
-}
+    .subtitle {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 50px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: rgba(248,244,238,0.78);
+    }
 
-/* GRID */
-.grid {
-  max-width: 1600px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 26px;
-}
+    .grid {
+      max-width: 1600px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 26px;
+    }
 
-/* CARD */
-.card {
-  container-type: inline-size; /* 🔥 THIS enables scaling */
-  background: rgba(255,255,255,0.09);
-  border: 1px solid rgba(255,255,255,0.14);
-  border-radius: 20px;
-  padding: 28px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
-}
+    .card {
+      container-type: inline-size;
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 20px;
+      padding: 28px;
+      line-height: 1.55;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+    }
 
-/* TEXT SCALING INSIDE CARDS */
-.card h2 {
-  font-size: clamp(1.2rem, 7cqw, 1.8rem);
-}
+    .card h2 {
+      margin-top: 0;
+      color: #f8f4ee;
+      font-size: clamp(1.15rem, 6cqw, 1.7rem);
+    }
 
-.card p,
-.card a {
-  font-size: clamp(0.9rem, 4.5cqw, 1.1rem);
-  line-height: 1.45;
-}
+    .card p,
+    .card a {
+      font-size: clamp(0.9rem, 4cqw, 1.1rem);
+    }
 
-/* FEATURE CARD */
-.card.feature {
-  grid-column: span 2;
-}
+    .card.feature {
+      grid-column: span 2;
+    }
 
-/* IMAGES */
-img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-top: 12px;
-}
+    img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-top: 12px;
+      display: block;
+    }
 
-/* QUOTES */
-.quote {
-  text-align: center;
-  margin: 60px auto;
-  max-width: 900px;
-  font-size: clamp(2rem, 6vw, 5rem);
-  line-height: 1.2;
-}
+    p {
+      margin-bottom: 14px;
+    }
 
-/* LINKS */
-a {
-  color: #d8c7ff;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
+    a {
+      color: #d8c7ff;
+      text-decoration: none;
+    }
 
-/* ZODIAC SECTION */
-.zodiac-section {
-  margin-top: 80px;
-}
+    a:hover {
+      text-decoration: underline;
+    }
 
-.zodiac-section h2 {
-  text-align: center;
-  font-size: clamp(2rem, 4vw, 3rem);
-}
+    .quote {
+      max-width: 1000px;
+      margin: 60px auto;
+      font-size: clamp(2rem, 6vw, 5rem);
+      line-height: 1.2;
+      text-align: center;
+      background: transparent;
+      box-shadow: none;
+      border: none;
+    }
 
-.zodiac-subtitle {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 40px;
-  opacity: 0.8;
-}
+    .zodiac-section {
+      max-width: 1600px;
+      margin: 80px auto 0;
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+    }
 
-/* ZODIAC GRID */
-.zodiac-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
+    .zodiac-section h2 {
+      text-align: center;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-top: 0;
+    }
 
-.zodiac-item {
-  container-type: inline-size;
-  background: rgba(255,255,255,0.06);
-  padding: 16px;
-  border-radius: 16px;
-  text-align: center;
-}
+    .zodiac-section > p {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 32px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: rgba(248,244,238,0.82);
+    }
 
-.zodiac-item h3 {
-  font-size: clamp(1rem, 6cqw, 1.4rem);
-}
+    .zodiac-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 20px;
+    }
 
-.zodiac-item p {
-  font-size: clamp(0.8rem, 4cqw, 1rem);
-}
+    .zodiac-item {
+      container-type: inline-size;
+      background: rgba(255,255,255,0.06);
+      padding: 16px;
+      border-radius: 14px;
+      text-align: center;
+    }
 
-.zodiac-item img {
-  height: 140px;
-}
+    .zodiac-item h3 {
+      margin: 0 0 8px;
+      font-size: clamp(1rem, 7cqw, 1.45rem);
+    }
 
-/* RESPONSIVE */
-@media (max-width: 1000px) {
-  .zodiac-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+    .zodiac-item p {
+      font-size: clamp(0.85rem, 4.5cqw, 1rem);
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
 
-@media (max-width: 700px) {
-  .card.feature {
-    grid-column: span 1;
-  }
+    .zodiac-item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-top: 8px;
+    }
 
-  .zodiac-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+    @media (max-width: 1000px) {
+      .zodiac-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
 
-@media (max-width: 450px) {
-  .zodiac-grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
+    @media (max-width: 700px) {
+      body {
+        padding: 22px;
+      }
+
+      .card.feature {
+        grid-column: span 1;
+      }
+
+      .zodiac-section {
+        padding: 24px;
+      }
+
+      .zodiac-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 450px) {
+      .zodiac-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<h1>Meeting 04.30.26</h1>
+  <h1>Meeting 04.30.26</h1>
 
-<p class="subtitle">
-Notes, resources, reflections, and creative sparks from our first New York Creative Room gathering.
-</p>
+  <p class="subtitle">
+    Notes, resources, reflections, and creative sparks from our first New York Creative Room gathering.
+  </p>
 
-<div class="quote">
-Creative process is not linear.
-</div>
+  <div class="quote">
+    Creative process is not linear.
+  </div>
 
-<div class="grid">
+  <div class="grid">
 
-<!-- KEEP YOUR EXISTING CARDS EXACTLY AS THEY WERE -->
-<!-- (I didn't rewrite them to avoid breaking your content) -->
+    <div class="card">
+      <h2>The Artist’s Way</h2>
+      <p>
+        Julia Cameron’s <em>The Artist’s Way</em> offers a framework for unlocking creativity through consistency,
+        honesty, and removing self-censorship.
+      </p>
+      <p>
+        It is especially valuable because it treats creativity as a practice — not a rare lightning strike.
+      </p>
+      <p>
+        → <a href="https://www.youtube.com/results?search_query=the+artist%27s+way+julia+cameron" target="_blank">YouTube overview</a><br>
+        → <a href="https://juliacameronlive.com/basic-tools/morning-pages/" target="_blank">Morning Pages</a><br>
+        → <a href="https://www.google.com/search?q=julia+cameron+artist&tbm=isch" target="_blank">Photo references</a>
+      </p>
+      <img src="../photos/4.30.26.julia.jpeg" alt="the artists way">
+      <img src="../photos/4.30.26.artistsway.jpeg" alt="the artists way">
+    </div>
 
-<!-- paste all your existing cards here unchanged -->
+    <div class="card">
+      <h2>Songwriting Philosophies</h2>
+      <p>
+        Some artists create through volume: writing hundreds of songs to find the strongest few.
+        Think Ed Sheeran or Taylor Swift.
+      </p>
+      <p>
+        Others work with a more selective approach, like Billie Eilish and Finneas, focusing on fewer songs that deeply serve the project.
+      </p>
+      <p>
+        → <a href="https://www.youtube.com/results?search_query=ed+sheeran+songwriting+process" target="_blank">Ed Sheeran songwriting process</a><br>
+        → <a href="https://www.youtube.com/results?search_query=taylor+swift+songwriting+process" target="_blank">Taylor Swift songwriting process</a><br>
+        → <a href="https://www.youtube.com/results?search_query=billie+eilish+finneas+songwriting+process" target="_blank">Billie + Finneas process</a>
+      </p>
+      <img src="../photos/4.30.26.ed.png" alt="Ed Sheeran">
+      <img src="../photos/4.30.26.taylor.jpeg" alt="Taylor Swift">
+      <img src="../photos/4.30.26.billie-finneas.jpeg" alt="Billie & Finneas">
+    </div>
 
-</div>
+    <div class="card">
+      <h2>Finishing Songs</h2>
+      <p>Finishing songs is its own creative muscle.</p>
+      <p>Starting 1,000 ideas can feel exciting, but discipline is often what turns inspiration into actual work.</p>
+    </div>
 
-<div class="quote">
-What does your process look like right now?
-</div>
+    <div class="card">
+      <h2>Perceived Competence</h2>
+      <p>In music and creative work, perceived competence can sometimes seem more valuable than actual competence.</p>
+      <p>This can pressure artists to appear more polished, less sensitive, or less uncertain — even when sensitivity is the source of the art.</p>
+    </div>
 
-<!-- 🔥 NEW FULL-WIDTH ZODIAC SECTION -->
-<section class="zodiac-section">
+    <div class="card">
+      <h2>Protected Creative Time</h2>
+      <p>One hour a week of dedicated, protected creative time can become a powerful anchor.</p>
+    </div>
 
-<h2>Zodiac & Singer-Songwriter Sun Signs</h2>
+    <div class="card">
+      <h2>Creative Co-Working</h2>
+      <p>Working alone, together.</p>
+      <p>Accountability without pressure. Presence without performance.</p>
+    </div>
 
-<p class="zodiac-subtitle">
-A playful look at famous singer-songwriters through their sun signs —
-not archetypes, not vibes, just actual birthdays.
-</p>
+    <div class="card feature">
+      <h2>Solitude + The World</h2>
+      <p>Solitude is sacred for many artists. It gives us space to hear ourselves clearly.</p>
+      <p>
+        But creating in a vacuum can stifle creativity. Sometimes, to write our best songs or create our best work,
+        we have to immerse ourselves in the world: sit on a bench in the park, wander through a museum, watch a film
+        with a beautiful story, observe strangers, colors, sounds, weather, and movement.
+      </p>
+      <p>Then we return inward — fueled with real material to create from.</p>
+      <p>
+        → <a href="https://www.youtube.com/results?search_query=solitude+and+creativity" target="_blank">Solitude + creativity</a><br>
+        → <a href="https://www.youtube.com/results?search_query=rick+rubin+creative+process+paying+attention" target="_blank">Rick Rubin on attention</a>
+      </p>
+    </div>
 
-<div class="zodiac-grid">
+    <div class="card">
+      <h2>Astrology + Synchronicity</h2>
+      <p>
+        Scorpio moon energy, astrological signs, synchronicities, and the soul’s path came up as ways artists interpret timing,
+        intuition, and emotional depth.
+      </p>
+    </div>
 
-<div class="zodiac-item">
-<h3>♈ Aries</h3>
-<p>Lady Gaga • Elton John • Aretha Franklin</p>
-<img src="../photos/1.jpg">
-</div>
+    <div class="card">
+      <h2>Carl Jung + Rick Rubin</h2>
+      <p>Carl Jung offers language for shadow, subconscious material, dreams, and integration.</p>
+      <p>Rick Rubin brings the focus back to intuition, simplicity, attention, and listening.</p>
+      <p>
+        → <a href="https://www.youtube.com/results?search_query=rick+rubin+creative+process" target="_blank">Rick Rubin interviews</a><br>
+        → <a href="https://www.youtube.com/results?search_query=carl+jung+explained+creativity" target="_blank">Carl Jung overview</a><br>
+        → <a href="https://www.google.com/search?q=rick+rubin+carl+jung&tbm=isch" target="_blank">Photo references</a>
+      </p>
+      <img src="../photos/4.30.26.rick.jpeg" alt="Rick Rubin">
+      <img src="../photos/4.30.26.carl.jpeg" alt="Carl Jung & synchronicity">
+    </div>
 
-<div class="zodiac-item">
-<h3>♉ Taurus</h3>
-<p>Adele • Stevie Wonder • Sam Smith</p>
-<img src="../photos/2.jpg">
-</div>
+    <div class="card">
+      <h2>Creativity as a way of life</h2>
+      <p>
+        We can take back control of our time, energy, and attention by weaving creativity into our way of life, no matter what that looks like.
+      </p>
+    </div>
 
-<div class="zodiac-item">
-<h3>♊ Gemini</h3>
-<p>Bob Dylan • Paul McCartney • Prince</p>
-<img src="../photos/3.jpg">
-</div>
+    <div class="card">
+      <h2>Smart Phone = best friend and worst enemy</h2>
+      <p>
+        Phones/technology/overstimulation —> dysregulated nervous system —> fight/flight/freeze/fawn & unable to be present and think clearly.
+        Solution ideas: the brick, bePresent app, graying out apps on smart phone.
+      </p>
+    </div>
 
-<div class="zodiac-item">
-<h3>♋ Cancer</h3>
-<p>Lana Del Rey • Joni Mitchell • H.E.R.</p>
-<img src="../photos/4.jpg">
-</div>
+  </div>
 
-<div class="zodiac-item">
-<h3>♌ Leo</h3>
-<p>Madonna • Mick Jagger • Kate Bush</p>
-<img src="../photos/5.jpg">
-</div>
+  <div class="quote">
+    What does your process look like right now?
+  </div>
 
-<div class="zodiac-item">
-<h3>♍ Virgo</h3>
-<p>Beyoncé • Fiona Apple • Freddie Mercury</p>
-<img src="../photos/6.jpg">
-</div>
+  <section class="zodiac-section">
+    <h2>Zodiac & Singer-Songwriter Sun Signs</h2>
 
-<div class="zodiac-item">
-<h3>♎ Libra</h3>
-<p>John Lennon • Paul Simon • Gwen Stefani</p>
-<img src="../photos/7.jpg">
-</div>
+    <p>
+      A playful look at famous singer-songwriters through their sun signs — not archetypes, not vibes,
+      just actual birthdays.
+    </p>
 
-<div class="zodiac-item">
-<h3>♏ Scorpio</h3>
-<p>Lorde • SZA • Neil Young</p>
-<img src="../photos/8.jpg">
-</div>
+    <div class="zodiac-grid">
 
-<div class="zodiac-item">
-<h3>♐ Sagittarius</h3>
-<p>Taylor Swift • Billie Eilish • Jimi Hendrix</p>
-<img src="../photos/9.jpg">
-</div>
+      <div class="zodiac-item">
+        <h3>♈ Aries</h3>
+        <p>Lady Gaga • Elton John • Aretha Franklin</p>
+        <img src="../photos/1.jpg" alt="Aries">
+      </div>
 
-<div class="zodiac-item">
-<h3>♑ Capricorn</h3>
-<p>David Bowie • Patti Smith • Dolly Parton</p>
-<img src="../photos/10.jpg">
-</div>
+      <div class="zodiac-item">
+        <h3>♉ Taurus</h3>
+        <p>Adele • Stevie Wonder • Sam Smith</p>
+        <img src="../photos/2.jpg" alt="Taurus singer-songwriters">
+      </div>
 
-<div class="zodiac-item">
-<h3>♒ Aquarius</h3>
-<p>Harry Styles • Shakira • Alicia Keys</p>
-<img src="../photos/11.jpg">
-</div>
+      <div class="zodiac-item">
+        <h3>♊ Gemini</h3>
+        <p>Bob Dylan • Paul McCartney • Prince</p>
+        <img src="../photos/3.jpg" alt="Gemini singer-songwriters">
+      </div>
 
-<div class="zodiac-item">
-<h3>♓ Pisces</h3>
-<p>Rihanna • Kurt Cobain • Olivia Rodrigo</p>
-<img src="../photos/12.jpg">
-</div>
+      <div class="zodiac-item">
+        <h3>♋ Cancer</h3>
+        <p>Lana Del Rey • Joni Mitchell • H.E.R.</p>
+        <img src="../photos/4.jpg" alt="Cancer singer-songwriters">
+      </div>
 
-</div>
-</section>
+      <div class="zodiac-item">
+        <h3>♌ Leo</h3>
+        <p>Madonna • Mick Jagger • Kate Bush</p>
+        <img src="../photos/5.jpg" alt="Leo singer-songwriters">
+      </div>
+
+      <div class="zodiac-item">
+        <h3>♍ Virgo</h3>
+        <p>Beyoncé • Fiona Apple • Freddie Mercury</p>
+        <img src="../photos/6.jpg" alt="Virgo singer-songwriters">
+      </div>
+
+      <div class="zodiac-item">
+        <h3>♎ Libra</h3>
+        <p>John Lennon • Paul Simon • Gwen Stefani</p>
+        <img src="../photos/7.jpg" alt="Libra singer-songwriters">
+      </div>
+
+      <div class="zodiac-item">
+        <h3>♏ Scorpio</h3>
+        <p>Lorde • SZA • Neil Young</p>
+        <img src="../photos/8.jpg" alt="Scorpio singer-songwriters">
+      </div>
+
+      <div class="zodiac-item">
+        <h3>♐ Sagittarius</h3>
+        <p>Taylor Swift • Billie Eilish • Jimi Hendrix</p>
+        <img src="../photos/9.jpg" alt="Sagittarius singer-songwriters">
+      </div>
+
+      <div class="zodiac-item">
+        <h3>♑ Capricorn</h3>
+        <p>David Bowie • Patti Smith • Dolly Parton</p>
+        <img src="../photos/10.jpg" alt="Capricorn singer-songwriters">
+      </div>
+
+      <div class="zodiac-item">
+        <h3>♒ Aquarius</h3>
+        <p>Harry Styles • Shakira • Alicia Keys</p>
+        <img src="../photos/11.jpg" alt="Aquarius singer-songwriters">
+      </div>
+
+      <div class="zodiac-item">
+        <h3>♓ Pisces</h3>
+        <p>Rihanna • Kurt Cobain • Olivia Rodrigo</p>
+        <img src="../photos/12.jpg" alt="Pisces singer-songwriters">
+      </div>
+
+    </div>
+  </section>
 
 </body>
 </html>
