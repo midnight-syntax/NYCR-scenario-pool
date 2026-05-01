@@ -29,13 +29,13 @@
       color: rgba(248,244,238,0.78);
     }
 
-    .grid {
-      max-width: 1100px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 22px;
-    }
+.grid {
+  max-width: 1600px; /* wider page */
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* more columns */
+  gap: 26px;
+}
     img {
       width: 100%;
       height: 220px;
@@ -48,12 +48,14 @@
       background: rgba(255,255,255,0.09);
       border: 1px solid rgba(255,255,255,0.14);
       border-radius: 20px;
-      padding: 24px;
+      padding: 28px;
       line-height: 1.55;
       box-shadow: 0 12px 40px rgba(0,0,0,0.25);
     }
         .scaling-text {
-      font-size: 6vw;
+        font-size: clamp(1.8rem, 5vw, 4rem);
+        line-height: 1.2;
+        text-align: center;
           
     }
     .card.feature {
@@ -118,9 +120,13 @@
       background: transparent;
       box-shadow: none;
       border: none;
+      grid-column: span 2;
     }
 
     @media (max-width: 700px) {
+      .quote {
+    grid-column: span 1;
+  }
       body {
         padding: 22px;
       }
@@ -333,7 +339,7 @@
     <div class="zodiac-item">
       <h3>♏ Scorpio</h3>
       <p>Lorde • SZA • Neil Young</p>
-      <img src="../photos/8.jpgE" alt="Scorpio singer-songwriters">
+      <img src="../photos/8.jpg" alt="Scorpio singer-songwriters">
     </div>
 
     <div class="zodiac-item">
